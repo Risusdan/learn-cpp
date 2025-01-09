@@ -2,8 +2,6 @@
 #include "../cpp-dsa/DoublyLinkedList.h"
 #include "../cpp-dsa/DoublyLinkedList.cpp"
 
-namespace DoublyLinkedListTests {
-
 TEST(DLL_Tests, CreateEmptyList) {
     // Arrange
     DoublyLinkedList *list = new DoublyLinkedList();
@@ -361,5 +359,3 @@ TEST(DLL_DeleteNodeTests, DeleteNodeWhenIndexIsInRange) {
     ASSERT_EQ(list->getTail(), 40);
     ASSERT_EQ(list->getLength(), 3);
 }
-
-} // namespace DoublyLinkedListTests

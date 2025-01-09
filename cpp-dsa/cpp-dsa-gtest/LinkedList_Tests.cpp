@@ -2,8 +2,6 @@
 #include "../cpp-dsa/LinkedList.h"
 #include "../cpp-dsa/LinkedList.cpp"
 
-namespace LinkedListTests {
-
 TEST(LL_Tests, CreateEmptyList) {
     // Arrange
     LinkedList *list = new LinkedList();
@@ -399,5 +397,3 @@ TEST(LL_ReverseTests, ReverseListWithMultipleNodes) {
     EXPECT_EQ(10, list->getTail());
     EXPECT_EQ(4, list->getLength());
 }
-
-} // namespace LinkedListTests
