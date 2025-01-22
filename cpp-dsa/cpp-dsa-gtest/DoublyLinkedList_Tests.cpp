@@ -2,17 +2,9 @@
 #include "../cpp-dsa/DoublyLinkedList.h"
 #include "../cpp-dsa/DoublyLinkedList.cpp"
 
-TEST(DLL_Tests, CreateEmptyList) {
-    // Arrange
-    DoublyLinkedList *list = new DoublyLinkedList();
-
-    // Act & Assert
-    ASSERT_EQ(list->getLength(), 0);
-}
-
 TEST(DLL_Tests, CreateListWithSingleNode) {
     // Arrange
-    DoublyLinkedList *list = new DoublyLinkedList();
+    DoublyLinkedList* list = new DoublyLinkedList();
     list->append(1);
 
     // Act & Assert
@@ -23,7 +15,7 @@ TEST(DLL_Tests, CreateListWithSingleNode) {
 
 TEST(DLL_AppendTests, AppendNodeToEmptyList) {
     // Arrange
-    DoublyLinkedList *list = new DoublyLinkedList();
+    DoublyLinkedList* list = new DoublyLinkedList();
 
     // Act
     list->append(9);
@@ -36,7 +28,7 @@ TEST(DLL_AppendTests, AppendNodeToEmptyList) {
 
 TEST(DLL_AppendTests, AppendNodeToExistingList) {
     // Arrange
-    DoublyLinkedList *list = new DoublyLinkedList(10);
+    DoublyLinkedList* list = new DoublyLinkedList(10);
 
     // Act
     list->append(9);
@@ -49,7 +41,7 @@ TEST(DLL_AppendTests, AppendNodeToExistingList) {
 
 TEST(DLL_PrependTests, PrependNodeToEmptyList) {
     // Arrange
-    DoublyLinkedList *list = new DoublyLinkedList();
+    DoublyLinkedList* list = new DoublyLinkedList();
 
     // Act
     list->prepend(9);
@@ -62,7 +54,7 @@ TEST(DLL_PrependTests, PrependNodeToEmptyList) {
 
 TEST(DLL_PrependTests, PrependNodeToExistingList) {
     // Arrange
-    DoublyLinkedList *list = new DoublyLinkedList(10);
+    DoublyLinkedList* list = new DoublyLinkedList(10);
 
     // Act
     list->prepend(9);
@@ -75,33 +67,33 @@ TEST(DLL_PrependTests, PrependNodeToExistingList) {
 
 TEST(DLL_DeleteLastTests, DeleteLastNodeFromEmptyList) {
     // Arrange
-    DoublyLinkedList *list = new DoublyLinkedList();
+    DoublyLinkedList* list = new DoublyLinkedList();
 
     // Act
     list->deleteLast();
 
     // Assert
     ASSERT_EQ(list->getLength(), 0);
-    ASSERT_EQ(list->getHead(), -1);
-    ASSERT_EQ(list->getTail(), -1);
+    ASSERT_EQ(list->getHead(), INT_MIN);
+    ASSERT_EQ(list->getTail(), INT_MIN);
 }
 
 TEST(DLL_DeleteLastTests, DeleteLastNodeFromListWithSingleNode) {
     // Arrange
-    DoublyLinkedList *list = new DoublyLinkedList(10);
+    DoublyLinkedList* list = new DoublyLinkedList(10);
 
     // Act
     list->deleteLast();
 
     // Assert
     ASSERT_EQ(list->getLength(), 0);
-    ASSERT_EQ(list->getHead(), -1);
-    ASSERT_EQ(list->getTail(), -1);
+    ASSERT_EQ(list->getHead(), INT_MIN);
+    ASSERT_EQ(list->getTail(), INT_MIN);
 }
 
 TEST(DLL_DeleteLastTests, DeleteLastNodeFromListWithMultipleNodes) {
     // Arrange
-    DoublyLinkedList *list = new DoublyLinkedList(10);
+    DoublyLinkedList* list = new DoublyLinkedList(10);
     list->append(20);
     list->append(30);
 
@@ -116,33 +108,33 @@ TEST(DLL_DeleteLastTests, DeleteLastNodeFromListWithMultipleNodes) {
 
 TEST(DLL_DeleteFirstTests, DeleteFirstNodeFromEmptyList) {
     // Arrange
-    DoublyLinkedList *list = new DoublyLinkedList();
+    DoublyLinkedList* list = new DoublyLinkedList();
 
     // Act
     list->deleteFirst();
 
     // Assert
     ASSERT_EQ(list->getLength(), 0);
-    ASSERT_EQ(list->getHead(), -1);
-    ASSERT_EQ(list->getTail(), -1);
+    ASSERT_EQ(list->getHead(), INT_MIN);
+    ASSERT_EQ(list->getTail(), INT_MIN);
 }
 
 TEST(DLL_DeleteFirstTests, DeleteFirstNodeFromListWithSingleNode) {
     // Arrange
-    DoublyLinkedList *list = new DoublyLinkedList(10);
+    DoublyLinkedList* list = new DoublyLinkedList(10);
 
     // Act
     list->deleteFirst();
 
     // Assert
     ASSERT_EQ(list->getLength(), 0);
-    ASSERT_EQ(list->getHead(), -1);
-    ASSERT_EQ(list->getTail(), -1);
+    ASSERT_EQ(list->getHead(), INT_MIN);
+    ASSERT_EQ(list->getTail(), INT_MIN);
 }
 
 TEST(DLL_DeleteFirstTests, DeleteFirstNodeFromListWithMultipleNodes) {
     // Arrange
-    DoublyLinkedList *list = new DoublyLinkedList(10);
+    DoublyLinkedList* list = new DoublyLinkedList(10);
     list->append(20);
     list->append(30);
 
@@ -157,10 +149,10 @@ TEST(DLL_DeleteFirstTests, DeleteFirstNodeFromListWithMultipleNodes) {
 
 TEST(DLL_GetNodeTests, GetNodeFromEmptyList) {
     // Arrange
-    DoublyLinkedList *list = new DoublyLinkedList();
+    DoublyLinkedList* list = new DoublyLinkedList();
 
     // Act
-    Node *node = list->getNode(0);
+    Node* node = list->getNode(0);
 
     // Assert
     ASSERT_EQ(node, nullptr);
@@ -168,10 +160,10 @@ TEST(DLL_GetNodeTests, GetNodeFromEmptyList) {
 
 TEST(DLL_GetNodeTests, GetNodeWhenIndexIsOutOfRange) {
     // Arrange
-    DoublyLinkedList *list = new DoublyLinkedList(10);
+    DoublyLinkedList* list = new DoublyLinkedList(10);
 
     // Act
-    Node *node = list->getNode(5);
+    Node* node = list->getNode(5);
 
     // Assert
     ASSERT_EQ(node, nullptr);
@@ -179,10 +171,10 @@ TEST(DLL_GetNodeTests, GetNodeWhenIndexIsOutOfRange) {
 
 TEST(DLL_GetNodeTests, GetNodeFromListWithSingleNode) {
     // Arrange
-    DoublyLinkedList *list = new DoublyLinkedList(10);
+    DoublyLinkedList* list = new DoublyLinkedList(10);
 
     // Act
-    Node *node = list->getNode(0);
+    Node* node = list->getNode(0);
 
     // Assert
     ASSERT_EQ(node->value, 10);
@@ -192,12 +184,12 @@ TEST(DLL_GetNodeTests, GetNodeFromListWithSingleNode) {
 
 TEST(DLL_GetNodeTests, GetNodeFromListWithMultipleNodes) {
     // Arrange
-    DoublyLinkedList *list = new DoublyLinkedList(10);
+    DoublyLinkedList* list = new DoublyLinkedList(10);
     list->append(20);
     list->append(30);
 
     // Act
-    Node *node = list->getNode(1);
+    Node* node = list->getNode(1);
 
     // Assert
     ASSERT_EQ(node->value, 20);
@@ -207,7 +199,7 @@ TEST(DLL_GetNodeTests, GetNodeFromListWithMultipleNodes) {
 
 TEST(DLL_SetNodeTests, SetNodeToEmptyList) {
     // Arrange
-    DoublyLinkedList *list = new DoublyLinkedList();
+    DoublyLinkedList* list = new DoublyLinkedList();
 
     // Act
     bool result = list->setNode(0, 10);
@@ -218,7 +210,7 @@ TEST(DLL_SetNodeTests, SetNodeToEmptyList) {
 
 TEST(DLL_SetNodeTests, SetNodeWhenIndexIsOutOfRange) {
     // Arrange
-    DoublyLinkedList *list = new DoublyLinkedList(10);
+    DoublyLinkedList* list = new DoublyLinkedList(10);
 
     // Act
     bool result = list->setNode(5, 10);
@@ -229,7 +221,7 @@ TEST(DLL_SetNodeTests, SetNodeWhenIndexIsOutOfRange) {
 
 TEST(DLL_SetNodeTests, SetNodeWhenIndexIsInRange) {
     // Arrange
-    DoublyLinkedList *list = new DoublyLinkedList(10);
+    DoublyLinkedList* list = new DoublyLinkedList(10);
     list->append(20);
     list->append(30);
 
@@ -243,7 +235,7 @@ TEST(DLL_SetNodeTests, SetNodeWhenIndexIsInRange) {
 
 TEST(DLL_InsertTests, InsertNodeWhenIndexIsOutOfRange) {
     // Arrange
-    DoublyLinkedList *list = new DoublyLinkedList(10);
+    DoublyLinkedList* list = new DoublyLinkedList(10);
     list->append(20);
     list->append(30);
 
@@ -256,7 +248,7 @@ TEST(DLL_InsertTests, InsertNodeWhenIndexIsOutOfRange) {
 
 TEST(DLL_InsertTests, InsertNodeWhenIndexIsZero) {
     // Arrange
-    DoublyLinkedList *list = new DoublyLinkedList(10);
+    DoublyLinkedList* list = new DoublyLinkedList(10);
     list->append(20);
     list->append(30);
 
@@ -270,7 +262,7 @@ TEST(DLL_InsertTests, InsertNodeWhenIndexIsZero) {
 
 TEST(DLL_InsertTests, InsertNodeWhenIndexIsEqualToLength) {
     // Arrange
-    DoublyLinkedList *list = new DoublyLinkedList(10);
+    DoublyLinkedList* list = new DoublyLinkedList(10);
     list->append(20);
     list->append(30);
 
@@ -284,7 +276,7 @@ TEST(DLL_InsertTests, InsertNodeWhenIndexIsEqualToLength) {
 
 TEST(DLL_InsertTests, InsertNodeWhenIndexIsInRange) {
     // Arrange
-    DoublyLinkedList *list = new DoublyLinkedList(10);
+    DoublyLinkedList* list = new DoublyLinkedList(10);
     list->append(20);
     list->append(30);
     list->append(40);
@@ -301,7 +293,7 @@ TEST(DLL_InsertTests, InsertNodeWhenIndexIsInRange) {
 
 TEST(DLL_DeleteNodeTests, DeleteNodeWhenIndexIsOutOfRange) {
     // Arrange
-    DoublyLinkedList *list = new DoublyLinkedList(10);
+    DoublyLinkedList* list = new DoublyLinkedList(10);
     list->append(20);
     list->append(30);
 
@@ -316,7 +308,7 @@ TEST(DLL_DeleteNodeTests, DeleteNodeWhenIndexIsOutOfRange) {
 
 TEST(DLL_DeleteNodeTests, DeleteNodeWhenIndexIsZero) {
     // Arrange
-    DoublyLinkedList *list = new DoublyLinkedList(10);
+    DoublyLinkedList* list = new DoublyLinkedList(10);
     list->append(20);
     list->append(30);
 
@@ -331,7 +323,7 @@ TEST(DLL_DeleteNodeTests, DeleteNodeWhenIndexIsZero) {
 
 TEST(DLL_DeleteNodeTests, DeleteNodeWhenIndexIsEqualToLengthMinusOne) {
     // Arrange
-    DoublyLinkedList *list = new DoublyLinkedList(10);
+    DoublyLinkedList* list = new DoublyLinkedList(10);
     list->append(20);
     list->append(30);
 
@@ -346,7 +338,7 @@ TEST(DLL_DeleteNodeTests, DeleteNodeWhenIndexIsEqualToLengthMinusOne) {
 
 TEST(DLL_DeleteNodeTests, DeleteNodeWhenIndexIsInRange) {
     // Arrange
-    DoublyLinkedList *list = new DoublyLinkedList(10);
+    DoublyLinkedList* list = new DoublyLinkedList(10);
     list->append(20);
     list->append(30);
     list->append(40);

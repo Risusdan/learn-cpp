@@ -3,8 +3,8 @@
 class Node {
   public:
     int value;
-    Node *next;
-    Node *prev;
+    Node* next;
+    Node* prev;
 
     Node(int value) {
         this->value = value;
@@ -15,8 +15,8 @@ class Node {
 
 class DoublyLinkedList {
   private:
-    Node *head;
-    Node *tail;
+    Node* head;
+    Node* tail;
     unsigned int length;
 
   public:
@@ -27,14 +27,14 @@ class DoublyLinkedList {
     }
 
     DoublyLinkedList(int value) {
-        Node *newNode = new Node(value);
+        Node* newNode = new Node(value);
         head = newNode;
         tail = newNode;
         length = 1;
     }
 
     ~DoublyLinkedList() {
-        Node *temp = head;
+        Node* temp = head;
         while (head != nullptr) {
             head = head->next;
             delete temp;
@@ -50,7 +50,7 @@ class DoublyLinkedList {
     void prepend(int value);
     void deleteLast(void);
     void deleteFirst(void);
-    Node *getNode(unsigned int index);
+    Node* getNode(unsigned int index);
     bool setNode(unsigned int index, int value);
     bool insertNode(unsigned int index, int value);
     void deleteNode(unsigned int index);

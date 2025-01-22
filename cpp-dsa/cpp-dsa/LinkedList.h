@@ -3,12 +3,7 @@
 class Node {
   public:
     int value;
-    Node *next;
-
-    Node() {
-        value = 0;
-        next = nullptr;
-    }
+    Node* next;
 
     Node(int value) {
         this->value = value;
@@ -18,8 +13,8 @@ class Node {
 
 class LinkedList {
   private:
-    Node *head;
-    Node *tail;
+    Node* head;
+    Node* tail;
     unsigned int length;
 
   public:
@@ -30,14 +25,14 @@ class LinkedList {
     }
 
     LinkedList(int value) {
-        Node *newNode = new Node(value);
+        Node* newNode = new Node(value);
         head = newNode;
         tail = newNode;
         length = 1;
     }
 
     ~LinkedList() {
-        Node *temp = head;
+        Node* temp = head;
         while (head != nullptr) {
             head = head->next;
             delete temp;
@@ -78,7 +73,7 @@ class LinkedList {
      * @brief Prepend a node to the beginning of the linked list
      * @param value The value to prepend to the linked list
      */
-      void prepend(int value);
+    void prepend(int value);
 
     /**
      * @brief Delete the last node of the linked list
@@ -95,7 +90,7 @@ class LinkedList {
      * @param index The index of the node to get
      * @return The node at the specified index
      */
-    Node *getNode(unsigned int index);
+    Node* getNode(unsigned int index);
 
     /**
      * @brief Set the value of a node at a specific index

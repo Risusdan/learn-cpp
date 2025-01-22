@@ -1,10 +1,23 @@
+/**
+ * @file DoublyLinkedList.cpp
+ * @brief Implementation of a doubly linked list data structure
+ * @details This file contains the implementation of a doubly linked list class
+ * that provides basic operations like inserting/deleting nodes and accessing
+ * head/tail values
+ *
+ * @author Daniel Su
+ * @date 2025-01-06
+ *
+ * @copyright Copyright (c) 2025
+ */
+
 #include <iostream>
 #include "DoublyLinkedList.h"
 
 using namespace std;
 
 void DoublyLinkedList::printList(void) {
-    Node *temp = head;
+    Node* temp = head;
     while (temp != nullptr) {
         cout << temp->value << " ";
         temp = temp->next;
@@ -14,14 +27,14 @@ void DoublyLinkedList::printList(void) {
 
 int DoublyLinkedList::getHead(void) {
     if (head == nullptr) {
-        return -1;
+        return INT_MIN;
     }
     return head->value;
 }
 
 int DoublyLinkedList::getTail(void) {
     if (tail == nullptr) {
-        return -1;
+        return INT_MIN;
     }
     return tail->value;
 }
@@ -29,7 +42,7 @@ int DoublyLinkedList::getTail(void) {
 unsigned int DoublyLinkedList::getLength(void) { return length; }
 
 void DoublyLinkedList::append(int value) {
-    Node *newNode = new Node(value);
+    Node* newNode = new Node(value);
     if (length == 0) {
         head = newNode;
         tail = newNode;
@@ -42,7 +55,7 @@ void DoublyLinkedList::append(int value) {
 }
 
 void DoublyLinkedList::prepend(int value) {
-    Node *newNode = new Node(value);
+    Node* newNode = new Node(value);
     if (length == 0) {
         head = newNode;
         tail = newNode;
@@ -59,7 +72,7 @@ void DoublyLinkedList::deleteLast(void) {
         return;
     }
 
-    Node *temp = tail;
+    Node* temp = tail;
     if (length == 1) {
         head = nullptr;
         tail = nullptr;
@@ -76,7 +89,7 @@ void DoublyLinkedList::deleteFirst(void) {
         return;
     }
 
-    Node *temp = head;
+    Node* temp = head;
     if (length == 1) {
         head = nullptr;
         tail = nullptr;
@@ -88,12 +101,12 @@ void DoublyLinkedList::deleteFirst(void) {
     length--;
 }
 
-Node *DoublyLinkedList::getNode(unsigned int index) {
+Node* DoublyLinkedList::getNode(unsigned int index) {
     if (length == 0U || index >= length) {
         return nullptr;
     }
 
-    Node *temp = head;
+    Node* temp = head;
     if (index < length / 2) {
         for (unsigned int i = 0; i < index; i++) {
             temp = temp->next;
@@ -108,7 +121,7 @@ Node *DoublyLinkedList::getNode(unsigned int index) {
 }
 
 bool DoublyLinkedList::setNode(unsigned int index, int value) {
-    Node *temp = getNode(index);
+    Node* temp = getNode(index);
     if (temp == nullptr) {
         return false;
     }
@@ -129,9 +142,9 @@ bool DoublyLinkedList::insertNode(unsigned int index, int value) {
         return true;
     }
 
-    Node *newNode = new Node(value);
-    Node *before = getNode(index - 1);
-    Node *after = before->next;
+    Node* newNode = new Node(value);
+    Node* before = getNode(index - 1);
+    Node* after = before->next;
 
     newNode->prev = before;
     newNode->next = after;
@@ -155,7 +168,7 @@ void DoublyLinkedList::deleteNode(unsigned int index) {
         return;
     }
 
-    Node *temp = getNode(index);
+    Node* temp = getNode(index);
     temp->prev->next = temp->next;
     temp->next->prev = temp->prev;
     delete temp;

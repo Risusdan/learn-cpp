@@ -12,12 +12,12 @@
  */
 
 #include <iostream>
-#include "linkedlist.h"
+#include "Linkedlist.h"
 
 using namespace std;
 
 void LinkedList::printList(void) {
-    Node *temp = head;
+    Node* temp = head;
     while (temp != nullptr) {
         cout << temp->value << " ";
         temp = temp->next;
@@ -25,14 +25,14 @@ void LinkedList::printList(void) {
     cout << endl;
 }
 
-int LinkedList::getHead(void) { return ((head != nullptr) ? head->value : -1); }
+int LinkedList::getHead(void) { return ((head != nullptr) ? head->value : INT_MIN); }
 
-int LinkedList::getTail(void) { return ((tail != nullptr) ? tail->value : -1); }
+int LinkedList::getTail(void) { return ((tail != nullptr) ? tail->value : INT_MIN); }
 
 unsigned int LinkedList::getLength(void) { return length; }
 
 void LinkedList::append(int value) {
-    Node *newNode = new Node(value);
+    Node* newNode = new Node(value);
     if (length == 0U) {
         head = newNode;
         tail = newNode;
@@ -44,7 +44,7 @@ void LinkedList::append(int value) {
 }
 
 void LinkedList::prepend(int value) {
-    Node *newNode = new Node(value);
+    Node* newNode = new Node(value);
     if (length == 0U) {
         head = newNode;
         tail = newNode;
@@ -60,14 +60,14 @@ void LinkedList::deleteLast(void) {
         return;
     }
 
-    Node *last = nullptr;
+    Node* last = nullptr;
 
     if (length == 1U) {
         last = tail;
         head = nullptr;
         tail = nullptr;
     } else {
-        Node *pre = head;
+        Node* pre = head;
         while (pre->next != tail) {
             pre = pre->next;
         }
@@ -84,7 +84,7 @@ void LinkedList::deleteFirst(void) {
         return;
     }
 
-    Node *temp = head;
+    Node* temp = head;
     head = head->next;
     if (length == 1U) {
         tail = nullptr;
@@ -93,12 +93,12 @@ void LinkedList::deleteFirst(void) {
     length--;
 }
 
-Node *LinkedList::getNode(unsigned int index) {
+Node* LinkedList::getNode(unsigned int index) {
     if (length == 0U || index >= length) {
         return nullptr;
     }
 
-    Node *temp = head;
+    Node* temp = head;
     for (unsigned int i = 0; i < index; i++) {
         temp = temp->next;
     }
@@ -106,7 +106,7 @@ Node *LinkedList::getNode(unsigned int index) {
 }
 
 bool LinkedList::setNode(unsigned int index, int value) {
-    Node *temp = getNode(index);
+    Node* temp = getNode(index);
     if (temp == nullptr) {
         return false;
     }
@@ -124,8 +124,8 @@ bool LinkedList::insertNode(unsigned int index, int value) {
         append(value);
         return true;
     } else {
-        Node *newNode = new Node(value);
-        Node *pre = getNode(index - 1);
+        Node* newNode = new Node(value);
+        Node* pre = getNode(index - 1);
         newNode->next = pre->next;
         pre->next = newNode;
         length++;
@@ -146,8 +146,8 @@ void LinkedList::deleteNode(unsigned int index) {
         return deleteLast();
     }
 
-    Node *pre = getNode(index - 1);
-    Node *nodeToDelete = pre->next;
+    Node* pre = getNode(index - 1);
+    Node* nodeToDelete = pre->next;
     pre->next = nodeToDelete->next;
     delete nodeToDelete;
     length--;
@@ -159,13 +159,13 @@ void LinkedList::reverse(void) {
     }
 
     // Swap head and tail
-    Node *temp = head;
+    Node* temp = head;
     head = tail;
     tail = temp;
 
     // Initialize before and after
-    Node *after = temp->next;
-    Node *before = nullptr;
+    Node* after = temp->next;
+    Node* before = nullptr;
 
     // Loop through list and swap next and before
     for (unsigned int i = 0; i < length; i++) {
