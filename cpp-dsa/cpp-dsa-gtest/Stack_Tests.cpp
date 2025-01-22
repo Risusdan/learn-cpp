@@ -11,7 +11,7 @@ TEST(Stack_Tests, CreateStack) {
     ASSERT_EQ(stack->getHeight(), 1);
 }
 
-TEST(StackPush_Tests, Push) {
+TEST(Stack_PushTests, Push) {
     // Arrange
     Stack* stack = new Stack(9);
 
@@ -23,7 +23,7 @@ TEST(StackPush_Tests, Push) {
     ASSERT_EQ(stack->getHeight(), 2);
 }
 
-TEST(StackPush_Tests, PushInEmptyStack) {
+TEST(Stack_PushTests, PushInEmptyStack) {
     // Arrange
     Stack* stack = new Stack(1);
 

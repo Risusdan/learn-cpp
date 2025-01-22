@@ -3,3 +3,5 @@ ColumnLimit: 80
 IndentWidth: 4
 SortIncludes: false
 PointerAlignment: Left
+AccessModifierOffset: 0
+IndentAccessModifiers: true
