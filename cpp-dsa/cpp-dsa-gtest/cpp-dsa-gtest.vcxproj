@@ -101,6 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DoublyLinkedList_Tests.cpp" />
+    <ClCompile Include="HashTable_Tests.cpp" />
     <ClCompile Include="LinkedList_Tests.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -110,6 +111,7 @@
     </ClCompile>
     <ClCompile Include="Queue_Tests.cpp" />
     <ClCompile Include="Stack_Tests.cpp" />
+    <ClCompile Include="Tree_Tests.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\cpp-dsa\cpp-dsa.vcxproj">
