@@ -43,7 +43,7 @@ inline complex operator+(double x, const complex& y)
     return complex(x + real(y), imag(y));
 }
 
-#include <iostream.h>
+#include <iostream>
 ostream& operator<<(ostream& os, const complex& x)
 {
     return os << '(' << real(x) << ',' << imag(x) << ')';
